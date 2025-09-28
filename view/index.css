@@ -1,0 +1,274 @@
+:root {
+      color-scheme: light dark;
+      --bg: #0f172a;
+      --bg-alt: #111827;
+      --bg-card: rgba(15, 23, 42, 0.82);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --text: #f8fafc;
+      --text-muted: rgba(248, 250, 252, 0.72);
+      --border: rgba(148, 163, 184, 0.24);
+      font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 55%), var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      width: min(960px, 95vw);
+      margin: 0 auto 80px;
+    }
+
+    header {
+      padding: 72px 0 48px;
+      text-align: center;
+      position: relative;
+    }
+
+    .language-toggle {
+      position: absolute;
+      top: 24px;
+      right: 0;
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .language-toggle button {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.55);
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .language-toggle button.is-active {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: rgba(56, 189, 248, 0.6);
+      color: var(--text);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .language-toggle button:hover {
+      border-color: rgba(56, 189, 248, 0.55);
+      color: var(--text);
+    }
+
+    .language-toggle button:focus-visible {
+      outline: 2px solid rgba(56, 189, 248, 0.75);
+      outline-offset: 2px;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      opacity: 0.6;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .key-visual {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 32px;
+      background: linear-gradient(135deg, var(--bg-card), rgba(15, 23, 42, 0.58));
+      backdrop-filter: blur(12px);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    section {
+      margin-top: 64px;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(148, 163, 184, 0.08), rgba(30, 64, 175, 0.12));
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 30px 120px rgba(15, 23, 42, 0.4);
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    section h2::before {
+      content: "";
+      width: 24px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 18px;
+      padding: 20px 24px;
+      background: rgba(15, 23, 42, 0.65);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    ul, p {
+      margin-bottom: 16px;
+      color: var(--text-muted);
+    }
+
+    ul li {
+      margin-left: 1.2em;
+      padding-left: 0.3em;
+      margin-bottom: 8px;
+    }
+
+    ol {
+      margin-bottom: 16px;
+      color: var(--text-muted);
+      padding-left: 1.4em;
+    }
+
+    ol li {
+      margin-bottom: 8px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.18);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-right: 12px;
+    }
+
+    .skill-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .skill-matrix .skill {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(15, 23, 42, 0.52);
+    }
+
+    .skill .level {
+      margin-top: 10px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .level span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.3);
+    }
+
+    .level span.is-active {
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
+    }
+
+    footer {
+      text-align: center;
+      margin: 72px 0 48px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 56px 0 36px;
+      }
+
+      .language-toggle {
+        position: static;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+
+      section {
+        padding: 28px;
+      }
+
+      .key-visual {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
